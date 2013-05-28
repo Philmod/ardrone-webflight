@@ -3,24 +3,27 @@ PILOT_ACCELERATION = 0.2;
 (function(window, document) {
 	'use strict';
 
+	var keyboardType = 1;  // indice of the array below
+
+	var keyboardTypes = ['azerty', 'qwerty']
+		, keyCodeMap    = {"0":"96","1":"97","2":"98","3":"99","4":"100","5":"101","6":"102","7":"103","8":"104","9":"105","backspace":"8","tab":"9","return":"13","shift":"16","ctrl":"17","alt":"18","pausebreak":"19","capslock":"20","escape":"27"," ":"32","pageup":"33","pagedown":"34","end":"35","home":"36","left":"37","up":"38","right":"39","down":"40","+":"107","printscreen":"44","insert":"45","delete":"46",";":"186","=":"187","a":"65","b":"66","c":"67","d":"68","e":"69","f":"70","g":"71","h":"72","i":"73","j":"74","k":"75","l":"76","m":"77","n":"78","o":"79","p":"80","q":"81","r":"82","s":"83","t":"84","u":"85","v":"86","w":"87","x":"88","y":"89","z":"90","*":"106","-":"189",".":"190","/":"191","f1":"112","f2":"113","f3":"114","f4":"115","f5":"116","f6":"117","f7":"118","f8":"119","f9":"120","f10":"121","f11":"122","f12":"123","numlock":"144","scrolllock":"145",",":"188","`":"192","[":"219","\\":"220","]":"221","'":"222"};
+	  ;
+
+	var forward  = 'w'
+		, backward = 's'
+		, left		 = 'a'
+		, right 	 = 'd'
+		;
+	if (keyboardTypes[keyboardType] === 'qwerty') { }
+	else if (keyboardTypes[keyboardType] === 'azerty') {
+		forward  = 'z';
+		backward = 's';
+		left 		 = 'q';
+		right 	 = 'd';
+	}
+
 	// Static keymap used within this module
 	var Keymap = {
-			87 : {
-				ev : 'move',
-				action : 'front'
-			},
-			83 : {
-				ev : 'move',
-				action : 'back'
-			},
-			65 : {
-				ev : 'move',
-				action : 'left'
-			},
-			68 : {
-				ev : 'move',
-				action : 'right'
-			},
 			38 : {
 				ev : 'move',
 				action : 'up'
@@ -54,6 +57,22 @@ PILOT_ACCELERATION = 0.2;
 				action : 'disableEmergency'
 			}
 		};
+	Keymap[keyCodeMap[forward]] = {
+		ev : 'move',
+		action : 'front'
+	};
+	Keymap[keyCodeMap[backward]] = {
+		ev : 'move',
+		action : 'back'
+	};
+	Keymap[keyCodeMap[left]] = {
+		ev : 'move',
+		action : 'left'
+	};
+	Keymap[keyCodeMap[right]] = {
+		ev : 'move',
+		action : 'right'
+	};
 
 	/*
 	 * Constructuor
