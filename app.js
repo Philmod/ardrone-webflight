@@ -22,7 +22,7 @@ app.configure(function () {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs', { pretty: true });
     app.use(express.favicon());
-    app.use(express.logger('dev'));
+    // app.use(express.logger('dev'));
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
     app.use("/components", express.static(path.join(__dirname, 'components')));
@@ -35,9 +35,9 @@ app.configure('development', function () {
 
 app.get('/', function (req, res) {
     res.render('index', { 
-        title: 'Express' 
-        ,scripts: scripts
-        ,styles: styles
+          title   : 'ardrone WebFlight' 
+        , scripts : scripts
+        , styles  : styles
     });
 });
 
@@ -73,10 +73,10 @@ var navTimer = setInterval(pushNavData, 100);
 
 // Prepare dependency map for plugins
 var deps = {
-    server: server
-  , app: app
-  , io: io
-  , client: client
+    server : server
+  , app    : app
+  , io     : io
+  , client : client
 };
 
 
