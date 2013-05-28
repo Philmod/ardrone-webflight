@@ -1,4 +1,4 @@
-PILOT_ACCELERATION = 0.08;
+PILOT_ACCELERATION = 0.2;
 
 (function(window, document) {
 	'use strict';

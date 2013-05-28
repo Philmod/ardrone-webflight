@@ -18,8 +18,10 @@ function video(name, deps) {
     deps.client.createPngStream()
       .on('error', console.log)
       .on('data', function(frame) { 
-        latestImage = frame; 
+        latestImage = frame;
+        deps.data.latestImage = latestImage; // Expose the latestImage
     }); 
+
 };
 
 module.exports = video;

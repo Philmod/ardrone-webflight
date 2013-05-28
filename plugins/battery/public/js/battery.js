@@ -4,7 +4,7 @@
     var Battery;
 
     Battery = function Battery(cockpit) {
-        console.log("Loading Bagttery indicator plugin.");
+        console.log("Loading Battery indicator plugin.");
 
         // Instance variables
         this.cockpit = cockpit;
@@ -16,13 +16,13 @@
         
         // Bind to navdata events on websockets
         var self = this;
-	this.cockpit.socket.on('navdata', function(data) {
-	    if (!jQuery.isEmptyObject(data)) {
-	        requestAnimationFrame(function() {
-                    self.render(data);
-                });
-            }
-	});
+    	this.cockpit.socket.on('navdata', function(data) {
+    	    if (!jQuery.isEmptyObject(data)) {
+    	        requestAnimationFrame(function() {
+                        self.render(data);
+                    });
+                }
+    	});
 
         // Initial draw
         this.draw();
