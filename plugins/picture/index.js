@@ -4,9 +4,9 @@ var fs        = require('fs')
 function picture(name, deps) {
   deps.io.sockets.on('connection', function (socket) {
     socket.on('/picture/take', function (data) {
-        console.log("take picture");
-
         var filename = 'ardrone_' + (new Date).getTime() + '.png';
+
+        console.log('Take picture : ', filename);
 
         if (!fs.existsSync(directory)) fs.mkdirSync(directory);
 

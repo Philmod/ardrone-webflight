@@ -25,6 +25,8 @@ feed via webscokets and rendering in Javascript !!! Need a modern browser and CP
 
 * **[picture](plugins/picture)** to save a picture to the server, from the browser.
 
+* **[video-png_face-detection](plugins/video-png_face-detection/)** same as video-png, with face detection (use open-cv).
+
 ## Install
 
 WebFlight requires a recent nodejs (built and tested with node > 0.10) as well as
