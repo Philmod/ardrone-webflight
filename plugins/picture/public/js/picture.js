@@ -20,10 +20,18 @@
 
         // Add some listeners for socket.io
         this.cockpit.socket.on('/picture/ok', function(data) {
-          console.log('picture taken : ', data);
+          $.notifyBar({
+            cssClass : "success",
+            html     : 'Picture saved : ' + JSON.stringify(data)
+          });
         });
         this.cockpit.socket.on('/picture/error', function(e) {
-          console.log('error : ', e);
+          $.notifyBar({
+            cssClass : "error",
+            html     : 'Error while saving the picture: ' + JSON.stringify(e),
+            // delay    : 2000,
+            // animationSpeed: "normal"
+          });
         });
         
     };
