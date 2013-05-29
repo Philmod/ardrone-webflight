@@ -23,6 +23,8 @@ feed via webscokets and rendering in Javascript !!! Need a modern browser and CP
 
 * **[pilot](plugins/pilot)** to control the drone remotely using the keyboard. Based on [drone-browser](https://github.com/functino/drone-browser).
 
+* **[picture](plugins/picture)** to save a picture to the server, from the browser.
+
 ## Install
 
 WebFlight requires a recent nodejs (built and tested with node > 0.10) as well as
@@ -43,7 +45,7 @@ bower install
 4. Point your browser to http://localhost:3000/
 
 If you have enabled the **pilot** plugin, you can fly the drone with the following keys. Yes, 
-these are azerty bindings :-) If you need qwerty ones, just hack the plugin. I'll need to find 
+these are azerty bindings :-) If you need qwerty ones, just change the parameter `keyboardType` in the plugin. I'll need to find 
 a way to provide custome configuration etc.
 
 Use `Z, S, Q, D` to move front, back and sideways. Use your `cursors` to go up/down or turn 
